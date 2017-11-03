@@ -1,0 +1,9 @@
+0.Because I use spark2.1 so download Spark and run setup.py:
+cd my-spark-2.1-directory/python/
+python setup.py install
+
+1.Run the restful api for random_forest:
+./spark-submit ~/Downloads/rf_model_in_spark/RF_Prediction.py  ~/Downloads/rf_model_in_spark/myrfModel/
+
+2.use curl for test restful api
+curl -H "Content-Type: application/json" -X POST -d '{"_c0": "60.0", "Lat":"37.307741", "Lng":"-121.89593", "Tax rate area":"17108.0", "Neighborhood":"0.0", "Lot sq. ft.":"8400.0", "Property class":"0.0", "Year built":"1938.0", "Square feet":"1320.0", "Rooms":"6.0", "Bedrooms":"2.0", "Bathrooms":"1.0", "ZIP code":"95125", "Median Price(2017)":"713.0", "Median $ per Sq. Ft.(2017)":"757543.2"}' http://localhost:6666/spark_rf
